@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    let deadline = "2020-05-25";
+    let deadline = '2020-05-25';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -71,5 +71,24 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     setClock("timer", deadline);
+
+    //Modal
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+    
+    more.addEventListener('click', function(){
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+        //Запрещает прокрутку окна
+    });
+
+    close.addEventListener('click', function(){
+        overlay.style.display = 'none';
+        this.classList.add('more-splash');
+        document.body.style.overflow = '';
+        //Запрещает прокрутку окна
+    });
 
 });
